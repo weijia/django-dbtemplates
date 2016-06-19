@@ -71,9 +71,9 @@ class Command(NoArgsCommand):
                                "list or tuple.")
 
         if app_first:
-            tpl_dirs = app_template_dirs + DIRS
+            tpl_dirs = list(app_template_dirs) + DIRS
         else:
-            tpl_dirs = DIRS + app_template_dirs
+            tpl_dirs = DIRS + list(app_template_dirs)
         templatedirs = [d for d in tpl_dirs if os.path.isdir(d)]
 
         for templatedir in templatedirs:
